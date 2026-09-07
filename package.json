@@ -1,0 +1,16 @@
+{
+  "name": "optimisation-infra-devoteam",
+  "version": "1.0.0",
+  "description": "Pipeline modulaire d'optimisation de l'infrastructure technique",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/*.test.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0",
+    "zod": "^4.5.4"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "timestamp": "2023-10-11T21:30:00Z",
+  "insights": {
+    "average_latency_ms": 156.02,
+    "max_cpu_usage": 99,
+    "max_memory_usage": 92,
+    "error_rate": 0.0316,
+    "uptime_seconds": 1258200
+  },
+  "anomalies": [
+    {
+      "metric": "cpu_usage",
+      "value": 99,
+      "threshold": 90,
+      "severity": "high",
+      "description": "Utilisation CPU : pic anormal à 99% le 2023-10-02T13:00:00Z, dépassant le seuil high de 90% (57 mesure(s) concernée(s) sur 500)."
+    },
+    {
+      "metric": "memory_usage",
+      "value": 92,
+      "threshold": 85,
+      "severity": "high",
+      "description": "Utilisation mémoire : pic anormal à 92% le 2023-10-02T13:00:00Z, dépassant le seuil high de 85% (60 mesure(s) concernée(s) sur 500)."
+    },
+    {
+      "metric": "latency_ms",
+      "value": 384,
+      "threshold": 300,
+      "severity": "high",
+      "description": "Latence : pic anormal à 384ms le 2023-10-03T14:00:00Z, dépassant le seuil high de 300ms (76 mesure(s) concernée(s) sur 500)."
+    },
+    {
+      "metric": "disk_usage",
+      "value": 97,
+      "threshold": 90,
+      "severity": "high",
+      "description": "Utilisation disque : pic anormal à 97% le 2023-10-05T21:00:00Z, dépassant le seuil high de 90% (61 mesure(s) concernée(s) sur 500)."
+    },
+    {
+      "metric": "error_rate",
+      "value": 0.13,
+      "threshold": 0.1,
+      "severity": "high",
+      "description": "Taux d'erreur : pic anormal à 0.13 le 2023-10-02T18:00:00Z, dépassant le seuil high de 0.1 (65 mesure(s) concernée(s) sur 500)."
+    },
+    {
+      "metric": "temperature_celsius",
+      "value": 89,
+      "threshold": 80,
+      "severity": "high",
+      "description": "Température : pic anormal à 89°C le 2023-10-03T14:00:00Z, dépassant le seuil high de 80°C (61 mesure(s) concernée(s) sur 500)."
+    },
+    {
+      "metric": "io_wait",
+      "value": 14,
+      "threshold": 10,
+      "severity": "high",
+      "description": "Attente I/O : pic anormal à 14% le 2023-10-01T22:00:00Z, dépassant le seuil high de 10% (79 mesure(s) concernée(s) sur 500)."
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec_cpu_usage",
+      "action": "scale_out_compute",
+      "target": "compute_cluster",
+      "parameters": {
+        "suggested_additional_instances": 2,
+        "autoscaling": true
+      },
+      "benefit_estimate": "Réduction estimée de 25 à 35% de la charge CPU moyenne par nœud"
+    },
+    {
+      "id": "rec_memory_usage",
+      "action": "increase_memory_allocation",
+      "target": "application_servers",
+      "parameters": {
+        "suggested_ram_increase_gb": 4,
+        "enable_memory_profiling": true
+      },
+      "benefit_estimate": "Réduction du risque d'OOM et amélioration de la stabilité des services"
+    },
+    {
+      "id": "rec_latency_ms",
+      "action": "enable_caching_and_load_balancing",
+      "target": "api_gateway",
+      "parameters": {
+        "cache_ttl_seconds": 300,
+        "add_load_balancer_node": true
+      },
+      "benefit_estimate": "Réduction estimée de 30 à 50% de la latence moyenne perçue par les utilisateurs"
+    },
+    {
+      "id": "rec_disk_usage",
+      "action": "extend_storage_or_cleanup",
+      "target": "storage_volume",
+      "parameters": {
+        "suggested_extra_storage_gb": 100,
+        "enable_log_rotation": true
+      },
+      "benefit_estimate": "Élimination du risque de saturation disque à court terme"
+    },
+    {
+      "id": "rec_error_rate",
+      "action": "investigate_error_logs",
+      "target": "application_backend",
+      "parameters": {
+        "enable_detailed_tracing": true,
+        "rollback_last_deployment_if_needed": true
+      },
+      "benefit_estimate": "Réduction du taux d'erreur et amélioration de la fiabilité perçue"
+    },
+    {
+      "id": "rec_temperature_celsius",
+      "action": "improve_cooling",
+      "target": "datacenter_rack",
+      "parameters": {
+        "check_airflow": true,
+        "schedule_hardware_maintenance": true
+      },
+      "benefit_estimate": "Réduction du risque de throttling matériel et de panne prématurée"
+    },
+    {
+      "id": "rec_io_wait",
+      "action": "optimize_disk_io",
+      "target": "storage_subsystem",
+      "parameters": {
+        "migrate_to_ssd_or_nvme": true,
+        "review_io_intensive_jobs": true
+      },
+      "benefit_estimate": "Réduction des temps d'attente disque et amélioration du débit global"
+    },
+    {
+      "id": "rec_service_api_gateway",
+      "action": "add_health_checks_and_failover",
+      "target": "api_gateway",
+      "parameters": {
+        "degraded_occurrences": 67,
+        "offline_occurrences": 0,
+        "enable_circuit_breaker": true
+      },
+      "benefit_estimate": "Réduction du risque d'indisponibilité du service 'api_gateway' (observé dégradé à 67 reprise(s) sur la période analysée)"
+    },
+    {
+      "id": "rec_service_cache",
+      "action": "add_health_checks_and_failover",
+      "target": "cache",
+      "parameters": {
+        "degraded_occurrences": 34,
+        "offline_occurrences": 0,
+        "enable_circuit_breaker": true
+      },
+      "benefit_estimate": "Réduction du risque d'indisponibilité du service 'cache' (observé dégradé à 34 reprise(s) sur la période analysée)"
+    },
+    {
+      "id": "rec_service_database",
+      "action": "add_health_checks_and_failover",
+      "target": "database",
+      "parameters": {
+        "degraded_occurrences": 0,
+        "offline_occurrences": 59,
+        "enable_circuit_breaker": true
+      },
+      "benefit_estimate": "Réduction du risque d'indisponibilité du service 'database' (observé offline à 59 reprise(s) sur la période analysée)"
+    }
+  ],
+  "service_status_summary": {
+    "online": [
+      "database",
+      "api_gateway",
+      "cache"
+    ],
+    "degraded": [],
+    "offline": []
+  }
+}
